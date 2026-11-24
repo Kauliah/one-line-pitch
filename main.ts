@@ -1,0 +1,11 @@
+import { mkdirSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+
+// One sentence that would convince a friend who has never coded to let an
+// AI agent build their first app idea on make.fun.
+const sentence =
+  "Describe the app you've always wanted in plain words and an AI agent on make.fun will build a first version of it for free — you bring the idea, it does the coding.";
+
+const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "out";
+mkdirSync(outDir, { recursive: true });
+writeFileSync(join(outDir, "entry.txt"), sentence, "utf8");
